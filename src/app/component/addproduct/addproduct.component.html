@@ -1,0 +1,67 @@
+<div class="bg-white flex flex-col h-[45rem] w-[35rem] rounded-xl">
+    <div class="p-5 bg-black rounded-t-xl text-white text-lg">
+      <span>Add Products</span>
+    </div>
+    <div class="mt-10 ms-20">
+      <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+        <div class="flex flex-col">
+          <div>
+            <label class="font-bold font-mono" for="name">Name: </label>
+            <input
+              class="border border-black rounded p-2 w-72 ms-[3.6rem]"
+              id="name"
+              type="text"
+              formControlName="title"
+              placeholder="Name of the product"
+            />
+          </div>
+          <div class="mt-10">
+            <label class="font-bold font-mono" for="description"
+              >Description:
+            </label>
+            <textarea
+              class="border border-black rounded p-2"
+              id="description"
+              rows="6"
+              cols="30"
+              formControlName="description"
+              placeholder="description of the product"
+            ></textarea>
+          </div>
+          <div class="mt-10">
+            <label class="font-bold font-mono" for="stock">Stock: </label>
+            <input
+              class="border border-black rounded p-2 ms-[3.3rem]"
+              id="stock"
+              type="text"
+              formControlName="stock"
+              placeholder="Stock of the product"
+            />
+          </div>
+          <div class="mt-10">
+            <label class="font-bold font-mono" for="price">Price: </label>
+            <input
+              class="border border-black rounded p-2 ms-[3.3rem]"
+              id="price"
+              type="text"
+              formControlName="price"
+            />
+          </div>
+          <div class="mt-10">
+            <label class="font-bold font-mono" for="category">Category: </label>
+            <input
+              class="border border-black rounded p-2 ms-7"
+              id="category"
+              type="text"
+              formControlName="category"
+              placeholder="Category of the product"
+            />
+          </div>
+        </div>
+        <div class="mt-10 ms-40">
+          <button class="bg-green-800 text-white p-3 rounded-lg hover:bg-green-950" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

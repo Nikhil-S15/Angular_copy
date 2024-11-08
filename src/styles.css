@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+/* For PrimeNg  */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+/* For TailwindCSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Root Config for consitency */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.app {
+    height: 100%;
+    width: 100%;
+    @apply text-sm;
+    @apply bg-white;
+    /* @apply dark:bg-black; */
+}

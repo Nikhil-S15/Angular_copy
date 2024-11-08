@@ -1,0 +1,94 @@
+<div class="bg-gray-800">
+  <div *ngIf="!isProductLoaded; else loaded" class="card flex content-center">
+    <p-progressSpinner ariaLabel="loading" />
+  </div>
+  <ng-template #loaded>
+    <div class="card p-2 bg-white rounded-xl">
+      <p-table
+        [value]="products"
+        [resizableColumns]="true"
+        columnResizeMode="expand"
+        styleClass="p-datatable-gridlines"
+        [tableStyle]="{ 'min-width': '80rem' }"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th pResizableColumn>Image</th>
+            <th pResizableColumn>Title</th>
+            <th pResizableColumn>Description</th>
+            <th pResizableColumn>Category</th>
+            <th pResizableColumn>Rating</th>
+            <th pResizableColumn>Price</th>
+            <th pResizableColumn>Quantity</th>
+            <th pResizableColumn>Edit'</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>
+              <div>
+                <img src="{{ product.thumbnail }}" alt="thumbnail" class="h-20" />
+              </div>
+            </td>
+            <td>
+              <div class="font-bold">
+                {{ product.title | titlecase }}
+              </div>
+            </td>
+            <td>
+              <div class="w-64 h-max">
+                <p class="text-sm flex text-wrap">
+                  {{ product.description }}
+                </p>
+              </div>
+            </td>
+            <td>{{ product.category }}</td>
+            <td>
+              <p-rating
+                [(ngModel)]="product.rating"
+                pTooltip="{{ product.rating }}"
+                tooltipPosition="right"
+                [readonly]="true"
+                [cancel]="false"
+              />
+            </td>
+            <td>{{ product.price * 84.31 | currency : "INR" }}</td>
+            <td>
+              <div>
+                <span
+                  [ngClass]="{
+                    'bg-green-500 ': product.stock > 10,
+                    'bg-red-500': product.stock <= 10
+                  }"
+                  class="text-white p-2 rounded-xl border-b-2 shadow-sm border"
+                >
+                  {{ product.stock }}
+                </span>
+              </div>
+            </td>
+            <td>
+              <div>
+                <a [routerLink]="['/edit', product.id]">
+                  <button
+                    class="font-semibold bg-red-200 hover:bg-red-300 p-3 rounded-xl border-gray-400 border"
+                  >
+                    Edit
+                  </button>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </ng-template>
+  <div class="card pt-4">
+    <a [routerLink]="['/add']">
+      <button
+        class="font-semibold bg-green-800 p-4 hover:bg-green-900 hover:text-gray-100 text-white rounded-xl"
+      >
+        Add Product
+      </button>
+    </a>
+  </div>
+</div>
