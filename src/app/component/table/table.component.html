@@ -1,15 +1,16 @@
-<div class="bg-gray-800">
-  <div *ngIf="!isProductLoaded; else loaded" class="card flex content-center">
+<div class="bg-gray-800 p-4 sm:p-6 md:p-8">
+  <div *ngIf="!isProductLoaded; else loaded" class="card flex justify-center items-center">
     <p-progressSpinner ariaLabel="loading" />
   </div>
   <ng-template #loaded>
-    <div class="card p-2 bg-white rounded-xl">
+    <div class="card p-4 bg-white rounded-xl overflow-x-auto">
       <p-table
         [value]="products"
         [resizableColumns]="true"
         columnResizeMode="expand"
         styleClass="p-datatable-gridlines"
         [tableStyle]="{ 'min-width': '80rem' }"
+        class="w-full"
       >
         <ng-template pTemplate="header">
           <tr>
@@ -20,29 +21,27 @@
             <th pResizableColumn>Rating</th>
             <th pResizableColumn>Price</th>
             <th pResizableColumn>Quantity</th>
-            <th pResizableColumn>Edit'</th>
+            <th pResizableColumn>Edit</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
           <tr>
             <td>
               <div>
-                <img src="{{ product.thumbnail }}" alt="thumbnail" class="h-20" />
+                <img src="{{ product.thumbnail }}" alt="thumbnail" class="h-20 w-20 object-cover" />
               </div>
             </td>
             <td>
-              <div class="font-bold">
+              <div class="font-bold text-sm md:text-base">
                 {{ product.title | titlecase }}
               </div>
             </td>
-            <td>
-              <div class="w-64 h-max">
-                <p class="text-sm flex text-wrap">
-                  {{ product.description }}
-                </p>
-              </div>
+            <td class="w-64 max-w-full">
+              <p class="text-xs md:text-sm flex text-wrap">
+                {{ product.description }}
+              </p>
             </td>
-            <td>{{ product.category }}</td>
+            <td class="text-xs md:text-sm">{{ product.category }}</td>
             <td>
               <p-rating
                 [(ngModel)]="product.rating"
@@ -70,7 +69,7 @@
               <div>
                 <a [routerLink]="['/edit', product.id]">
                   <button
-                    class="font-semibold bg-red-200 hover:bg-red-300 p-3 rounded-xl border-gray-400 border"
+                    class="font-semibold text-xs md:text-sm bg-red-200 hover:bg-red-300 p-2 md:p-3 rounded-xl border-gray-400 border"
                   >
                     Edit
                   </button>
@@ -82,10 +81,10 @@
       </p-table>
     </div>
   </ng-template>
-  <div class="card pt-4">
+  <div class="card pt-4 text-center">
     <a [routerLink]="['/add']">
       <button
-        class="font-semibold bg-green-800 p-4 hover:bg-green-900 hover:text-gray-100 text-white rounded-xl"
+        class="font-semibold bg-green-800 p-2 md:p-4 hover:bg-green-900 hover:text-gray-100 text-white rounded-xl"
       >
         Add Product
       </button>

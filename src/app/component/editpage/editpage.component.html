@@ -1,61 +1,58 @@
-<div class="bg-white flex flex-col h-[45rem] w-[35rem] rounded-xl">
+<div class="bg-white flex flex-col h-auto w-full max-w-md rounded-xl mx-auto">
   <div class="p-5 bg-black rounded-t-xl text-white text-lg">
     <span>Product Details</span>
   </div>
-  <div class="mt-10 ms-20">
+  <div class="mt-10 mx-4">
     <form [formGroup]="productForm" (ngSubmit)="submitForm()">
-      <div class="flex flex-col">
+      <div class="flex flex-col space-y-6">
         <div>
           <label class="font-bold font-mono" for="name">Name: </label>
           <input
-            class="border border-black rounded p-2 w-72 ms-[3.6rem]"
+            class="border border-black rounded p-2 w-full sm:w-72"
             id="name"
             type="text"
             formControlName="title"
           />
         </div>
-        <div class="mt-10">
-          <label class="font-bold font-mono" for="description"
-            >Description:
-          </label>
+        <div>
+          <label class="font-bold font-mono" for="description">Description:</label>
           <textarea
-            class="border border-black rounded p-2"
+            class="border border-black rounded p-2 w-full"
             id="description"
             rows="6"
-            cols="30"
             formControlName="description"
           ></textarea>
         </div>
-        <div class="mt-10">
+        <div>
           <label class="font-bold font-mono" for="stock">Stock: </label>
           <input
-            class="border border-black rounded p-2 ms-[3.3rem]"
+            class="border border-black rounded p-2 w-full sm:w-72"
             id="stock"
             type="text"
             formControlName="stock"
           />
         </div>
-        <div class="mt-10">
+        <div>
           <label class="font-bold font-mono" for="price">Price: </label>
           <input
-            class="border border-black rounded p-2 ms-[3.3rem]"
+            class="border border-black rounded p-2 w-full sm:w-72"
             id="price"
             type="text"
             formControlName="price"
           />
         </div>
-        <div class="mt-10">
+        <div>
           <label class="font-bold font-mono" for="category">Category: </label>
           <input
-            class="border border-black rounded p-2 ms-7"
+            class="border border-black rounded p-2 w-full sm:w-72"
             id="category"
             type="text"
             formControlName="category"
           />
         </div>
       </div>
-      <div class="mt-10 ms-40">
-        <button class="bg-green-800 text-white p-3 rounded-lg hover:bg-green-950" type="submit">Submit</button>
+      <div class="mt-10 text-center">
+        <button class="bg-green-800 text-white p-3 rounded-lg hover:bg-green-950 w-full sm:w-auto" type="submit">Submit</button>
       </div>
     </form>
   </div>

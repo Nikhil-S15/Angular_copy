@@ -1,67 +1,84 @@
-<div class="bg-white flex flex-col h-[45rem] w-[35rem] rounded-xl">
-    <div class="p-5 bg-black rounded-t-xl text-white text-lg">
-      <span>Add Products</span>
-    </div>
-    <div class="mt-10 ms-20">
-      <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
-        <div class="flex flex-col">
-          <div>
-            <label class="font-bold font-mono" for="name">Name: </label>
-            <input
-              class="border border-black rounded p-2 w-72 ms-[3.6rem]"
-              id="name"
-              type="text"
-              formControlName="title"
-              placeholder="Name of the product"
-            />
-          </div>
-          <div class="mt-10">
-            <label class="font-bold font-mono" for="description"
-              >Description:
-            </label>
-            <textarea
-              class="border border-black rounded p-2"
-              id="description"
-              rows="6"
-              cols="30"
-              formControlName="description"
-              placeholder="description of the product"
-            ></textarea>
-          </div>
-          <div class="mt-10">
-            <label class="font-bold font-mono" for="stock">Stock: </label>
-            <input
-              class="border border-black rounded p-2 ms-[3.3rem]"
-              id="stock"
-              type="text"
-              formControlName="stock"
-              placeholder="Stock of the product"
-            />
-          </div>
-          <div class="mt-10">
-            <label class="font-bold font-mono" for="price">Price: </label>
-            <input
-              class="border border-black rounded p-2 ms-[3.3rem]"
-              id="price"
-              type="text"
-              formControlName="price"
-            />
-          </div>
-          <div class="mt-10">
-            <label class="font-bold font-mono" for="category">Category: </label>
-            <input
-              class="border border-black rounded p-2 ms-7"
-              id="category"
-              type="text"
-              formControlName="category"
-              placeholder="Category of the product"
-            />
-          </div>
-        </div>
-        <div class="mt-10 ms-40">
-          <button class="bg-green-800 text-white p-3 rounded-lg hover:bg-green-950" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+<div class="bg-white flex flex-col h-auto w-full sm:w-[35rem] mx-auto rounded-xl shadow-lg">
+  <div class="p-5 bg-black rounded-t-xl text-white text-lg">
+    <span>Add Product</span>
   </div>
   
+  <div class="mt-10 px-4 sm:px-12">
+    <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+      <div class="flex flex-col space-y-6">
+        
+        <!-- Name Field -->
+        <div class="flex flex-col">
+          <label class="font-bold font-mono" for="name">Name: </label>
+          <input
+            class="border border-black rounded p-2 w-full sm:w-72 mt-2"
+            id="name"
+            type="text"
+            formControlName="title"
+            placeholder="Name of the product"
+          />
+        </div>
+        
+        <!-- Description Field -->
+        <div class="flex flex-col">
+          <label class="font-bold font-mono" for="description">Description: </label>
+          <textarea
+            class="border border-black rounded p-2 w-full sm:w-72 mt-2"
+            id="description"
+            rows="6"
+            formControlName="description"
+            placeholder="Description of the product"
+          ></textarea>
+        </div>
+        
+        <!-- Stock Field -->
+        <div class="flex flex-col">
+          <label class="font-bold font-mono" for="stock">Stock: </label>
+          <input
+            class="border border-black rounded p-2 w-full sm:w-72 mt-2"
+            id="stock"
+            type="text"
+            formControlName="stock"
+            placeholder="Stock of the product"
+          />
+        </div>
+        
+        <!-- Price Field -->
+        <div class="flex flex-col">
+          <label class="font-bold font-mono" for="price">Price: </label>
+          <input
+            class="border border-black rounded p-2 w-full sm:w-72 mt-2"
+            id="price"
+            type="text"
+            formControlName="price"
+            placeholder="Price of the product"
+          />
+        </div>
+        
+        <!-- Category Field -->
+        <div class="flex flex-col">
+          <label class="font-bold font-mono" for="category">Category: </label>
+          <input
+            class="border border-black rounded p-2 w-full sm:w-72 mt-2"
+            id="category"
+            type="text"
+            formControlName="category"
+            placeholder="Category of the product"
+          />
+        </div>
+
+        <!-- Buttons (Submit and Cancel) -->
+        <div class="flex justify-center sm:justify-start gap-4 mt-8">
+          <button class="bg-green-800 text-white p-3 rounded-lg hover:bg-green-950 w-full sm:w-auto" type="submit">Submit</button>
+          <button
+            class="bg-red-800 text-white p-3 rounded-lg hover:bg-red-950 w-full sm:w-auto"
+            type="button" 
+            (click)="cancel()">
+            Cancel
+          </button>
+        </div>
+        
+      </div>
+    </form>
+  </div>
+</div>

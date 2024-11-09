@@ -33,4 +33,9 @@ export class AddproductComponent {
         this.router.navigate(['/home'])
       });
   }
+   
+   cancel() {
+    this.addProductForm.reset(); 
+    this.router.navigate(['/home']); 
+  }
 }
